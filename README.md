@@ -216,8 +216,6 @@ Les tests valident :
 
 
 
-\- L’enfant écrit son programme avec des émojis simples.  
-
 \- Le compilateur traduit en \*\*MicroPython\*\*.  
 
 \- Le code s’exécute sur un robot (ex. \*\*Cutebot\*\*) via un microcontrôleur compatible.  
