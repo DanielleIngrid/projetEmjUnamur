@@ -20,8 +20,6 @@ Il compile des fichiers `.emj` et `.map` vers du \*\*code MicroPython exécutabl
 
 
 
-\- Simplifier l’apprentissage de la programmation pour les enfants et débutants.  
-
 \- Permettre de contrôler un robot éducatif avec des \*\*instructions visuelles\*\* (émojis).  
 
 \- Fournir une \*\*infrastructure de compilation\*\* complète :
