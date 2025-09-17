@@ -116,7 +116,7 @@ emj/
 
 
 
-# Métadonnées
+### Métadonnées
 
 title = "📢 Carte de jeu"
 
@@ -124,7 +124,7 @@ description = "📢 Exemple de fichier pour un plateau de jeu"
 
 
 
-# Carte : 2 x 4, orientation = LEFT
+### Carte : 2 x 4, orientation = LEFT
 
 rows = 2
 
