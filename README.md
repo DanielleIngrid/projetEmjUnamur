@@ -2,37 +2,13 @@
 
 
 
-\# 🐹 EMJ – Emoji MicroJava DSL
+# 🐹 EMJ – Emoji MicroJava DSL
 
 
 
-\*\*EMJ\*\* est un \*\*langage spécifique (DSL)\*\* conçu pour programmer des \*\*robots éducatifs\*\* (par ex. Cutebot) en utilisant une \*\*syntaxe à base d’émojis\*\* 🎉.  
+**EMJ** est un **langage spécifique (DSL)** conçu pour programmer des **robots éducatifs** (par ex. Cutebot) en utilisant une **syntaxe à base d’émojis** 🎉.  
 
-Il compile des fichiers `.emj` et `.map` vers du \*\*code MicroPython exécutable\*\* sur microcontrôleurs.
-
-
-
----
-
-
-
-\## 🚀 Objectif du projet
-
-
-
-\- Permettre de contrôler un robot éducatif avec des \*\*instructions visuelles\*\* (émojis).  
-
-\- Fournir une \*\*infrastructure de compilation\*\* complète :
-
-&nbsp; - Analyse lexicale et syntaxique (\*\*ANTLR4\*\*)
-
-&nbsp; - Vérifications sémantiques (table des symboles, portée, types)
-
-&nbsp; - Génération de code MicroPython
-
-&nbsp; - Gestion des erreurs conviviale
-
-&nbsp; - Tests automatisés (JUnit)
+Il compile des fichiers `.emj` et `.map` vers du **code MicroPython exécutable** sur microcontrôleurs.
 
 
 
@@ -40,19 +16,23 @@ Il compile des fichiers `.emj` et `.map` vers du \*\*code MicroPython exécutabl
 
 
 
-\## 🛠️ Stack technique
+## 🚀 Objectif du projet
 
 
 
-\- \*\*Java 17\*\*  
+- Permettre de contrôler un robot éducatif avec des **instructions visuelles** (émojis).  
 
-\- \*\*Maven\*\* (build \& dépendances)  
+- Fournir une **infrastructure de compilation** complète :
 
-\- \*\*ANTLR4\*\* (génération du lexer/parser)  
+ - Analyse lexicale et syntaxique (**ANTLR4**)
 
-\- \*\*JUnit 5\*\* (tests unitaires et d’intégration)  
+ - Vérifications sémantiques (table des symboles, portée, types)
 
-\- \*\*Log4j2\*\* (logging)  
+ - Génération de code MicroPython
+
+ - Gestion des erreurs conviviale
+
+ - Tests automatisés (JUnit)
 
 
 
@@ -60,7 +40,27 @@ Il compile des fichiers `.emj` et `.map` vers du \*\*code MicroPython exécutabl
 
 
 
-\## 📂 Structure du projet
+## 🛠️ Stack technique
+
+
+
+- **Java 17**  
+
+- **Maven** (build & dépendances)  
+
+- **ANTLR4** (génération du lexer/parser)  
+
+- **JUnit 5** (tests unitaires et d’intégration)  
+
+- **Log4j2** (logging)  
+
+
+
+---
+
+
+
+## 📂 Structure du projet
 
 
 
@@ -90,7 +90,7 @@ emj/
 
 │      └─ java/be/unamur/...# Tests unitaires et d’intégration
 
-├─ cubot\_movements.map      # Exemple de programme EMJ
+├─ cubot_movements.map      # Exemple de programme EMJ
 
 ├─ test.map                 # Exemple de map
 
@@ -102,31 +102,21 @@ emj/
 
 ---
 
-
-
-\## 🔎 Fonctionnement
-
-
-
-1\. \*\*Écriture d’un programme EMJ\*\*  
-
-&nbsp;
-
-
-
-\### Test pour une map
-
-!\[map](screens/test\_map.jpg)
+## 📸 Captures / démos  
 
 
 
 
+### Test pour une map
 
-&nbsp; Traduction en Python:
+![Map](screens/map.jpg)
+
+
+ ###Traduction en Python:
 
 
 
-\# Métadonnées
+# Métadonnées
 
 title = "📢 Carte de jeu"
 
@@ -134,7 +124,7 @@ description = "📢 Exemple de fichier pour un plateau de jeu"
 
 
 
-\# Carte : 2 x 4, orientation = LEFT
+# Carte : 2 x 4, orientation = LEFT
 
 rows = 2
 
@@ -144,19 +134,19 @@ orientation = "⬅️"  # gauche
 
 
 
-\# Plateau de jeu (grille)
+# Plateau de jeu (grille)
 
-grid =  \[
+grid =  [
 
-&nbsp;   \["🦹", "🚔", "🚜", "🛣️"],
+   ["🦹", "🚔", "🚜", "🛣️"],
 
-&nbsp;   \["🌋", "🏘️", "🚧", "🌊"]
+   ["🌋", "🏘️", "🚧", "🌊"]
 
 ]
 
 
 
-\# Affichage
+# Affichage
 
 print(title)
 
@@ -166,11 +156,11 @@ print(f"Dimensions: {rows} x {cols}")
 
 print(f"Orientation: {orientation}")
 
-print("\\nPlateau :")
+print("nPlateau :")
 
-for row in game\_map:
+for row in game_map:
 
-&nbsp;   print(" ".join(row))
+   print(" ".join(row))
 
 
 
@@ -182,61 +172,57 @@ Traduction en java
 
 public class  {
 
-&nbsp;   public static void main(String\[] args) {
+   public static void main(String[] args) {
 
-&nbsp;       // Métadonnées
+       // Métadonnées
 
-&nbsp;       String title = "📢 Carte de jeu";
+       String title = "📢 Carte de jeu";
 
-&nbsp;       String description = "📢 Exemple de fichier pour un plateau de jeu";
-
-
-
-&nbsp;       // "🗺️ with 2, 4, ⬅️;"
-
-&nbsp;       int rows = 2, cols = 4;
-
-&nbsp;       String orientation = "⬅️";
+       String description = "📢 Exemple de fichier pour un plateau de jeu";
 
 
 
-&nbsp;       // Grille 2x4 exactement comme ton fichier
+       // "🗺️ with 2, 4, ⬅️;"
 
-&nbsp;       String\[]\[] map = {
+       int rows = 2, cols = 4;
 
-&nbsp;           {"🦹", "🚔", "🚜", "🛣️"},
-
-&nbsp;           {"🌋", "🏘️", "🚧", "🌊"}
-
-&nbsp;       };
+       String orientation = "⬅️";
 
 
 
-&nbsp;       // Affichage
+       // Grille 2x4 exactement comme ton fichier
 
-&nbsp;       System.out.println(title);
+       String[][] map = {
 
-&nbsp;       System.out.println(description);
+           {"🦹", "🚔", "🚜", "🛣️"},
 
-&nbsp;       System.out.println("Dimensions: " + rows + " x " + cols);
+           {"🌋", "🏘️", "🚧", "🌊"}
 
-&nbsp;       System.out.println("Orientation: " + orientation);
+       };
 
-&nbsp;       System.out.println("\\nPlateau :");
 
-&nbsp;       for (int i = 0; i < rows; i++) {
 
-&nbsp;           for (int j = 0; j < cols; j++) {
+       // Affichage
 
-&nbsp;               System.out.print(map\[i]\[j] + " ");
+       System.out.println(title);
 
-&nbsp;           }
+       System.out.println(description);
 
-&nbsp;           System.out.println();
+       System.out.println("Dimensions: " + rows + " x " + cols);
 
-&nbsp;       }
+      System.out.println("Orientation: " + orientation);
 
-&nbsp;   }
+      System.out.println("nPlateau :");
+
+      for (int i = 0; i < rows; i++) {
+         for (int j = 0; j < cols; j++) {
+
+              System.out.print(map[i][j] + " ");
+         }
+          System.out.println();
+
+      }
+   }
 
 }
 
@@ -244,11 +230,11 @@ public class  {
 
 
 
-\### test de fonction
+### test de fonction
 
-\### Test pour une fonction
+### Test pour une fonction
 
-!\[fonction](screens/test\_fonction.jpg)
+![fonction](screens/test_fonction.jpg)
 
 
 
@@ -256,9 +242,9 @@ traduction en python
 
 
 
-def var\_bowl(var\_0, var\_1):
+def var_bowl(var_0, var_1):
 
-&nbsp;   return var\_0 + var\_1
+  return var_0 + var_1
 
 
 
@@ -266,47 +252,17 @@ def var\_bowl(var\_0, var\_1):
 
 def main():
 
-&nbsp;   var\_0 = 10         # \[🐕]
+   var_0 = 10         # [🐕]
 
-&nbsp;   var\_1 = 7          # \[🐎]
+   var_1 = 7          # [🐎]
 
-&nbsp;   var\_2 = var\_bowl(2, 5)       # \[🐶] = \[🥣](2,5)
+   var_2 = var_bowl(2, 5)       # [🐶] = [🥣](2,5)
 
-&nbsp;   var\_3 = var\_bowl(var\_0, var\_1)  # \[🌐] = \[🥣](\[🐕],\[🐎])
-
-
-
-&nbsp;   return main   # ↩️ 🌀     # ou bien : return var\_3 
+   var_3 = var_bowl(var_0, var_1)  # [🌐] = [🥣]([🐕],[🐎])
 
 
 
----
-
-
-
-\## ✅ Fonctionnalités
-
-
-
-\- \*\*Analyse syntaxique\*\* : grammaire ANTLR complète pour la syntaxe EMJ.  
-
-\- \*\*Analyse sémantique\*\* :  
-
-&nbsp; - Déclarations \& portées (`SymbolTable`)  
-
-&nbsp; - Vérification de types  
-
-&nbsp; - Fonctions \& variables (`FunctionSymbol`, `VariableSymbol`)  
-
-\- \*\*Génération de code\*\* : visiteur dédié (`EMJCodeGeneratorVisitor`).  
-
-\- \*\*Gestion des erreurs\*\* :  
-
-&nbsp; - Logs détaillés (`EMJErrorLogger`)  
-
-&nbsp; - Exceptions custom (`EMJErrorException`, `ParsingException`, etc.)  
-
-\- \*\*Tests unitaires\*\* : couverture sur déclarations, expressions, instructions, fonctions, code Cutebot.  
+   return main   # ↩️ 🌀     # ou bien : return var_3 
 
 
 
@@ -314,7 +270,37 @@ def main():
 
 
 
-\## 🧪 Exécution des tests
+## ✅ Fonctionnalités   
+
+
+
+- **Analyse syntaxique** : grammaire ANTLR complète pour la syntaxe EMJ.  
+
+- **Analyse sémantique** :  
+
+ - Déclarations & portées (`SymbolTable`)  
+
+ - Vérification de types  
+
+ - Fonctions & variables (`FunctionSymbol`, `VariableSymbol`)  
+
+- **Génération de code** : visiteur dédié (`EMJCodeGeneratorVisitor`).  
+
+- **Gestion des erreurs** :  
+
+ - Logs détaillés (`EMJErrorLogger`)  
+
+ - Exceptions custom (`EMJErrorException`, `ParsingException`, etc.)  
+
+- **Tests unitaires** : couverture sur déclarations, expressions, instructions, fonctions, code Cutebot.  
+
+
+
+---
+
+
+
+## 🧪 Exécution des tests
 
 
 
@@ -328,25 +314,11 @@ mvn test
 
 Les tests valident :
 
-\- la grammaire ANTLR (parsing correct/erreurs attendues)  
+- la grammaire ANTLR (parsing correct/erreurs attendues)  
 
-\- la sémantique (déclarations, fonctions, instructions, expressions)  
+- la sémantique (déclarations, fonctions, instructions, expressions)  
 
-\- la génération MicroPython (via fichiers `.map` de démo)  
-
-
-
----
-
-
-
-\## 📸 Exemple d’utilisation pédagogique
-
-
-
-\- Le compilateur traduit en \*\*MicroPython\*\*.  
-
-\- Le code s’exécute sur un robot (ex. \*\*Cutebot\*\*) via un microcontrôleur compatible.  
+- la génération MicroPython (via fichiers `.map` de démo)  
 
 
 
@@ -354,17 +326,13 @@ Les tests valident :
 
 
 
-\## 👤 Auteur
+## 📸 Exemple d’utilisation pédagogique
 
 
 
-\*\*Ingrid Goudji\*\*  
+- Le compilateur traduit en **MicroPython**.  
 
-\- 📧 \[dgoudji@yahoo.fr](mailto:dgoudji@yahoo.fr)  
-
-\- 💼 \[LinkedIn](https://linkedin.com/in/ingrid-goudji-a9465aa5)  
-
-\- 🐙 \[GitHub](https://github.com/DanielleIngrid)  
+- Le code s’exécute sur un robot (ex. **Cutebot**) via un microcontrôleur compatible.  
 
 
 
@@ -372,13 +340,31 @@ Les tests valident :
 
 
 
-\## 📄 Licence / usage
+## 👤 Auteur
 
 
 
-Projet académique présenté dans un \*\*portfolio\*\*.  
+**Danielle Goudji**  
 
-Le code complet est conservé en privé, mais peut être partagé \*\*en entretien\*\*.
+- 📧 [dgoudji@yahoo.fr](mailto:dgoudji@yahoo.fr)  
+
+- 💼 [LinkedIn](https://linkedin.com/in/ingrid-goudji-a9465aa5)  
+
+- 🐙 [GitHub](https://github.com/DanielleIngrid)  
+
+
+
+---
+
+
+
+## 📄 Licence / usage
+
+
+
+Projet académique présenté dans un **portfolio**.  
+
+Le code complet est conservé en privé, mais peut être partagé **en entretien**.
 
 
 
