@@ -110,45 +110,173 @@ emj/
 
 1\. \*\*Écriture d’un programme EMJ\*\*  
 
-&nbsp;  Exemple (`test.map`) :
-
-&nbsp;  ```emj
-
-&nbsp;  😀➡️➡️⬅️⬆️⬇️
-
-&nbsp;  ```
+&nbsp;
 
 
 
-&nbsp;  Ici, les émojis représentent des \*\*mouvements du robot\*\*.
+\### Test pour une map
+
+!\[map](screens/test\_map.jpg)
 
 
 
-2\. \*\*Compilation\*\*  
 
-&nbsp;  ```bash
 
-&nbsp;  mvn clean install
-
-&nbsp;  java -jar target/emj-compiler.jar test.map
-
-&nbsp;  ```
+&nbsp; Traduction en Python:
 
 
 
-3\. \*\*Sortie MicroPython\*\*  
+\# Métadonnées
 
-&nbsp;  Le compilateur génère du code MicroPython, ex. :
+title = "📢 Carte de jeu"
 
-&nbsp;  ```python
+description = "📢 Exemple de fichier pour un plateau de jeu"
 
-&nbsp;  robot.forward()
 
-&nbsp;  robot.left()
 
-&nbsp;  robot.up()
+\# Carte : 2 x 4, orientation = LEFT
 
-&nbsp;  ```
+rows = 2
+
+cols = 4
+
+orientation = "⬅️"  # gauche
+
+
+
+\# Plateau de jeu (grille)
+
+grid =  \[
+
+&nbsp;   \["🦹", "🚔", "🚜", "🛣️"],
+
+&nbsp;   \["🌋", "🏘️", "🚧", "🌊"]
+
+]
+
+
+
+\# Affichage
+
+print(title)
+
+print(description)
+
+print(f"Dimensions: {rows} x {cols}")
+
+print(f"Orientation: {orientation}")
+
+print("\\nPlateau :")
+
+for row in game\_map:
+
+&nbsp;   print(" ".join(row))
+
+
+
+
+
+
+
+Traduction en java
+
+public class  {
+
+&nbsp;   public static void main(String\[] args) {
+
+&nbsp;       // Métadonnées
+
+&nbsp;       String title = "📢 Carte de jeu";
+
+&nbsp;       String description = "📢 Exemple de fichier pour un plateau de jeu";
+
+
+
+&nbsp;       // "🗺️ with 2, 4, ⬅️;"
+
+&nbsp;       int rows = 2, cols = 4;
+
+&nbsp;       String orientation = "⬅️";
+
+
+
+&nbsp;       // Grille 2x4 exactement comme ton fichier
+
+&nbsp;       String\[]\[] map = {
+
+&nbsp;           {"🦹", "🚔", "🚜", "🛣️"},
+
+&nbsp;           {"🌋", "🏘️", "🚧", "🌊"}
+
+&nbsp;       };
+
+
+
+&nbsp;       // Affichage
+
+&nbsp;       System.out.println(title);
+
+&nbsp;       System.out.println(description);
+
+&nbsp;       System.out.println("Dimensions: " + rows + " x " + cols);
+
+&nbsp;       System.out.println("Orientation: " + orientation);
+
+&nbsp;       System.out.println("\\nPlateau :");
+
+&nbsp;       for (int i = 0; i < rows; i++) {
+
+&nbsp;           for (int j = 0; j < cols; j++) {
+
+&nbsp;               System.out.print(map\[i]\[j] + " ");
+
+&nbsp;           }
+
+&nbsp;           System.out.println();
+
+&nbsp;       }
+
+&nbsp;   }
+
+}
+
+
+
+
+
+test de fonction
+
+\### Test pour une fonction
+
+!\[fonction](screens/test\_fonction.jpg)
+
+
+
+traduction en python
+
+
+
+def var\_bowl(var\_0, var\_1):
+
+&nbsp;   return var\_0 + var\_1
+
+
+
+
+
+def main():
+
+&nbsp;   var\_0 = 10         # \[🐕]
+
+&nbsp;   var\_1 = 7          # \[🐎]
+
+&nbsp;   var\_2 = var\_bowl(2, 5)       # \[🐶] = \[🥣](2,5)
+
+&nbsp;   var\_3 = var\_bowl(var\_0, var\_1)  # \[🌐] = \[🥣](\[🐕],\[🐎])
+
+
+
+&nbsp;   return main   # ↩️ 🌀     # ou bien : return var\_3 
 
 
 
